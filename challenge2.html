@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        width: 50%;
+        margin: auto;
+        padding: 30px 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: solid 1px #ccc;
+    }
+    h4, p{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+    }
+    input{
+        padding: 2px 5px;
+        outline: none;
+        font-size: 14px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+<body>
+    <div class="container">
+        <h4 class="sentense" id="sentense"></h4>
+        <input type="text" id="word"><br>
+        <button onclick="check()">Check</button>
+        <p>Occurences : <span id="occurence"></span></p>
+    </div>
+    <script>
+        let sentense = document.getElementById('sentense').innerHTML = 'We went down to the stall, then down to the river.';
+        let occurence = document.getElementById('occurence').innerHTML = 0;
+        const check = () => {
+            let inpVal = document.getElementById('word').value;
+            let count = sentense.split(inpVal).length - 1;
+            occurence = document.getElementById('occurence').innerHTML = count;
+        }
+    </script>
+</body>
+</html>
